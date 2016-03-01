@@ -20,12 +20,12 @@ router.get('/', function(req, res, next) {
   	//});
 
 	db.each("SELECT *  FROM movie", [], function(err, row) {
-		var startpos = row.c08.indexOf('preview="') + 9;
-		var endpos = row.c08.indexOf('"', startpos+1); 
-		var posterurl = row.c08.substring(startpos, endpos); 
-		var movie = {title: row.c00, poster:posterurl}; 
+		var startpos = row.c08.indexOf('http://');
+		var endpos = row.c08.indexOf('.jpg', startpos+1); 
+		var posterurl = row.c08.substring(startpos, endpos+4); 
+		var movie = {title: row.c00, poster:posterurl};
+		console.log(row.c08);  
 		movies.push(movie);
-		//fanarts.push(rows.c20);
 	}, function(err, number) {
 		res.render('movieslist', { title: 'Movie list', movies: movies});
 	}); 
