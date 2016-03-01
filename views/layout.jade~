@@ -9,7 +9,7 @@ html
      |  background-color: black; 
      | }
      | .thumbnail {
-     |    background-color: lightblue;
+     |    background-color: lightgreen;
      | }
   body
     block content

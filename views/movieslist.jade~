@@ -1,11 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class="page-header")
+   h1(class="text-center text-info")
+    | #{title}
 
-  each movie in movies 
-   p 
-    img(src="#{movie.poster}", height="10%", width="10%") 
-    | #{movie.title}
+  div(class="row")
+   each movie in movies 
+    div(class="col-sm-2 col-md-2")
+      div(class="thumbnail")
+       img(src="#{movie.poster}", height="30%", width="30%") 
+       div(class="caption")  
+        p(class="text-center")
+         | #{movie.title}
+        p(class="text-center")
+         | <button type="button" class="btn btn-info">Info</button>
+     
+
+
 

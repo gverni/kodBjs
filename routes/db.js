@@ -23,12 +23,11 @@ router.get('/', function(req, res, next) {
 		var startpos = row.c08.indexOf('preview="') + 9;
 		var endpos = row.c08.indexOf('"', startpos+1); 
 		var posterurl = row.c08.substring(startpos, endpos); 
-		var movie = {title: row.c00, poster:row.posterurl}; 
+		var movie = {title: row.c00, poster:posterurl}; 
 		movies.push(movie);
 		//fanarts.push(rows.c20);
 	}, function(err, number) {
-		console.log("Length " + movies.length);
-		res.render('movieslist', { title: 'Kodi DB', movies: movies});
+		res.render('movieslist', { title: 'Movie list', movies: movies});
 	}); 
 
 

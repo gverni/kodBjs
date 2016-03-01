@@ -20,17 +20,23 @@ router.get('/', function(req, res, next) {
   	//});
 
 	db.each("SELECT *  FROM movie", [], function(err, row) {
-		var startpos = row.c08.indexOf('preview="');
+		var startpos = row.c08.indexOf('preview="') + 9;
 		var endpos = row.c08.indexOf('"', startpos+1); 
 		var posterurl = row.c08.substring(startpos, endpos); 
 		var movie = {title: row.c00, poster:posterurl}; 
 		movies.push(movie);
 		//fanarts.push(rows.c20);
 	}, function(err, number) {
-		console.log("Length " + movies.length);
 		res.render('movieslist', { title: 'Kodi DB', movies: movies});
-	});
+	}); 
+
+
+
 	
 });
+
+//cache handling 
+// var posterurl = "Select * from movie" => row.c08
+// In Texture13 => select * from texture where url="$posterurl" => cachedurl
 
 module.exports = router;
