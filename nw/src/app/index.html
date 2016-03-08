@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <title>Title</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script src="http://documentcloud.github.com/underscore/underscore-min.js">
+</script>
+<script src="http://documentcloud.github.com/backbone/backbone-min.js">
+</script>
+<script>
+   
+   document.write("Test nw!");  
+   var urlKodi = 'http://gverni3.eu.qualcomm.com:8890/jsonrpc?request={"jsonrpc": "2.0", "method": "VideoLibrary.GetMovies", "params": { "filter": {"field": "playcount", "operator": "is", "value": "0"}, "limits": { "start" : 0, "end": 75 }, "properties" : ["art", "rating", "thumbnail", "playcount", "file"], "sort": { "order": "ascending", "method": "label", "ignorearticle": true } }, "id": "libMovies"}'; 
+    $.getJSON(urlKodi, jQuery.noop)
+    .error(function() { alert("Error reading JSON"); })
+    .success(function(data) { 
+        document.write(JSON.stringify(data));
+        alert("Completed!");  
+     });
+   
+</script>
+</body>
+
+
+
+

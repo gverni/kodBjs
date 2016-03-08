@@ -1,0 +1,19 @@
+{
+  "name": "kodBjs-nw",
+  "description": "Kodi DB editor Single Page App",
+  "version": "0.0.1",
+  "main": "./src/app/index.html",
+  "window": {
+    "position": "center",
+    "width": 360,
+    "height": 300,
+    "min_width": 220,
+    "min_height": 220
+  },
+  "scripts": {
+    "start": "node_modules/.bin/nw ."
+  },
+  "dependencies": {
+    "npm": "^3.8.0"
+  }
+}
